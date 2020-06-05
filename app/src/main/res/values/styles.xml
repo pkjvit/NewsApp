@@ -7,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Text" parent="TextAppearance.MaterialComponents.Subtitle1"/>
+    <style name="Text.Headline">
+
+    </style>
+
 </resources>
