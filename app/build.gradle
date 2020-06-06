@@ -4,6 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 apply plugin: 'kotlin-kapt'
 
+// Read credentials
+def credentialFile = rootProject.file("credentials.properties")
+def credentialProperty = new Properties()
+credentialProperty.load(new FileInputStream(credentialFile))
+
 android {
     compileSdkVersion 28
 
@@ -15,6 +20,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "NEWS_API_KEY", credentialProperty['NEWS_API_KEY'])
     }
 
     buildTypes {
@@ -25,9 +31,10 @@ android {
     }
 }
 
+def archLifecycleVersion = '2.2.0-alpha01'
 def navigationVersion = "2.3.0-alpha01"
 def roomVersion = "2.2.3"
-def archLifecycleVersion = '2.2.0-alpha01'
+def retrofitVersion = "2.6.2"
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -44,14 +51,19 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:${navigationVersion}"
-    implementation "androidx.navigation:navigation-ui-ktx:${navigationVersion}"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
 
     // Room
     implementation "androidx.room:room-runtime:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
