@@ -11,7 +11,7 @@ import com.pkj.learn.newsbyjus.data.Article
  * @author Pankaj Jangid
  */
 @Dao
-interface ArticleDao {
+interface NewsDao {
 
 
     /**

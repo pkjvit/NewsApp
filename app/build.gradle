@@ -32,6 +32,7 @@ android {
 }
 
 def archLifecycleVersion = '2.2.0-alpha01'
+def daggerVersion = "2.27"
 def navigationVersion = "2.3.0-alpha01"
 def roomVersion = "2.2.3"
 def retrofitVersion = "2.6.2"
@@ -64,6 +65,10 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

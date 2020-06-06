@@ -5,11 +5,18 @@ import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.NewsRepository
 import com.pkj.learn.newsbyjus.data.Result
 import com.pkj.learn.newsbyjus.data.source.local.DefaultNewsLocalDataSource
+import com.pkj.learn.newsbyjus.data.source.remote.DefaultNewsRemoteDataSource
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
 
 /**
  * @author Pankaj Jangid
  */
-class DefaultNewsRepository(private val localDataSource: DefaultNewsLocalDataSource) : NewsRepository{
+class DefaultNewsRepository @Inject constructor(
+    private val localDataSource: DefaultNewsLocalDataSource,
+    private val remoteDataSource: DefaultNewsRemoteDataSource,
+    private val dispatcherIO: CoroutineDispatcher = Dispatchers.IO) : NewsRepository{
 
     override suspend fun getArticles(): Result<List<Article>> {
         return localDataSource.getArticles()

@@ -10,6 +10,6 @@ import com.pkj.learn.newsbyjus.data.Article
 @Database(entities = [Article::class], version = 1, exportSchema = false)
 abstract class NewsDatabase : RoomDatabase(){
 
-    abstract fun articleDao(): ArticleDao
+    abstract fun newsDao(): NewsDao
 
 }

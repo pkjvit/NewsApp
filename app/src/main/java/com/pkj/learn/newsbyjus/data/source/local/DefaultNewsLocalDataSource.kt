@@ -9,7 +9,7 @@ import java.lang.Exception
 /**
  * @author Pankaj Jangid
  */
-class DefaultNewsLocalDataSource(private val dao: ArticleDao) : NewsLocalDataSource{
+class DefaultNewsLocalDataSource(private val dao: NewsDao) : NewsLocalDataSource{
     override suspend fun getArticles(): Result<List<Article>> {
         return Result.Success(dao.getArticles())
     }
@@ -19,7 +19,7 @@ class DefaultNewsLocalDataSource(private val dao: ArticleDao) : NewsLocalDataSou
         article?.let {
             return Result.Success(article)
         }
-        return Result.Error(Exception("Article not found!"))
+        return Result.Error("Article not found!")
     }
 
     override fun observeArticles(): LiveData<Result<List<Article>>> {

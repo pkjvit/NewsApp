@@ -3,6 +3,8 @@ package com.pkj.learn.newsbyjus.data.source
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import com.pkj.learn.newsbyjus.data.Result
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import retrofit2.Response
 import java.lang.Exception
@@ -14,10 +16,13 @@ import java.lang.Exception
  * [ResultType] represents the type for database.
  * [RequestType] represents the type for network.
  */
+
+@FlowPreview
+@ExperimentalCoroutinesApi
 abstract class NetworkBoundResource<ResultType, RequestType> {
 
-    fun asFlow() = flow {
-        emit(Result.Loading)
+    fun asFlow() = flow<Result<Any?>> {
+        emit(Result.Loading())
 
         val dbValue = loadFromDb().first()
         if (shouldFetch(dbValue)) {
