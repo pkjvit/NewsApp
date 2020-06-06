@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">News Byjus</string>
+    <string name="loading_headlines_error">Error while loading headlines</string>
 </resources>

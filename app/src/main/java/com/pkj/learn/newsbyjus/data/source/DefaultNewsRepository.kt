@@ -6,8 +6,11 @@ import com.pkj.learn.newsbyjus.data.NewsRepository
 import com.pkj.learn.newsbyjus.data.Result
 import com.pkj.learn.newsbyjus.data.source.local.DefaultNewsLocalDataSource
 import com.pkj.learn.newsbyjus.data.source.remote.DefaultNewsRemoteDataSource
+import com.pkj.learn.newsbyjus.data.source.remote.HeadlineResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -16,10 +19,40 @@ import javax.inject.Inject
 class DefaultNewsRepository @Inject constructor(
     private val localDataSource: DefaultNewsLocalDataSource,
     private val remoteDataSource: DefaultNewsRemoteDataSource,
-    private val dispatcherIO: CoroutineDispatcher = Dispatchers.IO) : NewsRepository{
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : NewsRepository{
 
-    override suspend fun getArticles(): Result<List<Article>> {
+
+    override suspend fun refreshArticles() {
+        updateArticlesFromRemoteDataSource()
+    }
+
+    override suspend fun getArticles(forceUpdate: Boolean): Result<List<Article>> {
+        if (forceUpdate) {
+            try {
+                updateArticlesFromRemoteDataSource()
+            } catch (ex: Exception) {
+                return Result.Error(ex.localizedMessage)
+            }
+        }
         return localDataSource.getArticles()
+    }
+
+    private suspend fun updateArticlesFromRemoteDataSource()  = withContext(ioDispatcher){
+        val apiResponse = remoteDataSource.getTopHeadlines()
+
+        when {
+            apiResponse.isSuccessful && apiResponse.body() != null -> {
+                apiResponse.body()?.let {
+                    val articles:List<Article> = (it as HeadlineResponse).articles.map {
+                        article ->  Article.convertRemoteArticleToLocalArticle(article)
+                }
+                localDataSource.clearAndCacheArticles(articles) }
+            }
+            else -> {
+
+            }
+        }
+
     }
 
     override suspend fun getArticle(articleId: String): Result<Article> {

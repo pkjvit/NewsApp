@@ -13,10 +13,16 @@
         <action
             android:id="@+id/action_headlinesFragment_to_newsDetailFragment"
             app:destination="@id/newsDetailFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.pkj.learn.newsbyjus.newsdetail.NewsDetailFragment"
         android:label="NewsDetailFragment"
-        tools:layout="@layout/news_details_fragment"/>
+        tools:layout="@layout/news_details_fragment">
+        <argument
+            android:name="articleId"
+            app:argType="long"
+            />
+    </fragment>
 </navigation>

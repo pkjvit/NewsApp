@@ -7,8 +7,9 @@ import androidx.lifecycle.LiveData
  */
 interface NewsRepository {
 
+    suspend fun refreshArticles()
 
-    suspend fun getArticles(): Result<List<Article>>
+    suspend fun getArticles(forceUpdate: Boolean): Result<List<Article>>
 
     suspend fun getArticle(articleId: String): Result<Article>
 

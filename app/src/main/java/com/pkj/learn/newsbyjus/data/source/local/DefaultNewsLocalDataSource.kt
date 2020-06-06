@@ -5,11 +5,12 @@ import androidx.lifecycle.map
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.Result
 import java.lang.Exception
+import javax.inject.Inject
 
 /**
  * @author Pankaj Jangid
  */
-class DefaultNewsLocalDataSource(private val dao: NewsDao) : NewsLocalDataSource{
+class DefaultNewsLocalDataSource @Inject constructor(private val dao: NewsDao) : NewsLocalDataSource{
     override suspend fun getArticles(): Result<List<Article>> {
         return Result.Success(dao.getArticles())
     }

@@ -24,13 +24,13 @@ package com.pkj.learn.newsbyjus.data
 sealed class Result<out R> {
 
     data class Success<out T>(val data: T) : Result<T>()
-    data class Error<out T>(val errorMessage: String) : Result<T>()
+    data class Error<out T>(val errorMessage: String, val exception: Exception = Exception()) : Result<T>()
     data class Loading<out T>(val progress: Int = 0) : Result<T>()
 
     override fun toString(): String {
         return when (this) {
             is Success<*> -> "Success[data=$data]"
-            is Error -> "Error[errorMessage=$errorMessage]"
+            is Error -> "Error[errorMessage=$errorMessage, exception=$exception]"
             is Loading -> "Loading[progress=$progress]"
         }
     }

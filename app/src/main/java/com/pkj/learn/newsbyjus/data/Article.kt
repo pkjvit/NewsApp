@@ -3,6 +3,7 @@ package com.pkj.learn.newsbyjus.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.pkj.learn.newsbyjus.data.source.remote.Article
 import java.util.*
 
 /**
@@ -27,23 +28,44 @@ import java.util.*
 
 @Entity(tableName = "Article")
 class Article @JvmOverloads constructor(
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    val id: Long = UUID.randomUUID().getMostSignificantBits() and Long.MAX_VALUE,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0,
 
     @ColumnInfo(name = "author")
-    val author: String,
+    val author: String = "",
 
     @ColumnInfo(name = "title")
-    val title: String,
+    val title: String = "",
 
     @ColumnInfo(name = "description")
-    val description: String,
+    val description: String = "",
 
     @ColumnInfo(name = "url")
-    val url: String,
+    val url: String = "",
+
+    @ColumnInfo(name = "urlToImage")
+    val urlToImage: String = "",
 
     @ColumnInfo(name = "publishedAt")
-    val publishedAt: String
+    val publishedAt: String = "",
 
-)
+    @ColumnInfo(name = "source")
+    val source: String = ""
+) {
+
+    companion object {
+
+        fun convertRemoteArticleToLocalArticle(article: Article): com.pkj.learn.newsbyjus.data.Article {
+
+            return com.pkj.learn.newsbyjus.data.Article(
+                author = article.author?:"",
+                title = article.title?:"",
+                description = article.description?:"",
+                url = article.url?:"",
+                urlToImage = article.urlToImage?:"",
+                publishedAt = article.publishedAt?:"",
+                source = article.source.name?:""
+            )
+        }
+    }
+}

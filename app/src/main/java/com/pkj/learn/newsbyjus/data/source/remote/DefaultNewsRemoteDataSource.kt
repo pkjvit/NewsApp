@@ -2,11 +2,12 @@ package com.pkj.learn.newsbyjus.data.source.remote
 
 import com.pkj.learn.newsbyjus.data.Result
 import retrofit2.Response
+import javax.inject.Inject
 
 /**
  * @author Pankaj Jangid
  */
-class DefaultNewsRemoteDataSource(private val api: NewsApi) : NewsRemoteDataSource{
+class DefaultNewsRemoteDataSource @Inject constructor(private val api: NewsApi) : NewsRemoteDataSource{
 
     override suspend fun getTopHeadlines(): Response<HeadlineResponse> {
         return api.getTopHeadlines()

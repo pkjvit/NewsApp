@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 const val API_TIMEOUT: Long = 30
-private const val BASE_URL = "http://newsapi.org/v2/"
+private const val BASE_URL = "https://newsapi.org/v2/"
 
 /**
  * @author Pankaj Jangid
