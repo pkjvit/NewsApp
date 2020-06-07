@@ -3,8 +3,7 @@ package com.pkj.learn.newsbyjus.data
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.pkj.learn.newsbyjus.data.source.remote.Article
-import java.util.*
+import com.pkj.learn.newsbyjus.data.source.remote.NewsArticle
 
 /**
  * @author Pankaj Jangid
@@ -55,16 +54,16 @@ class Article @JvmOverloads constructor(
 
     companion object {
 
-        fun convertRemoteArticleToLocalArticle(article: Article): com.pkj.learn.newsbyjus.data.Article {
+        fun convertRemoteArticleToLocalArticle(newsArticle: NewsArticle): Article {
 
-            return com.pkj.learn.newsbyjus.data.Article(
-                author = article.author?:"",
-                title = article.title?:"",
-                description = article.description?:"",
-                url = article.url?:"",
-                urlToImage = article.urlToImage?:"",
-                publishedAt = article.publishedAt?:"",
-                source = article.source.name?:""
+            return Article(
+                author = newsArticle.author?:"",
+                title = newsArticle.title?:"",
+                description = newsArticle.description?:"",
+                url = newsArticle.url?:"",
+                urlToImage = newsArticle.urlToImage?:"",
+                publishedAt = newsArticle.publishedAt?:"",
+                source = newsArticle.source.name?:""
             )
         }
     }

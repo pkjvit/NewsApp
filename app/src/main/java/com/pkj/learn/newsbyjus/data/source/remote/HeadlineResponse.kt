@@ -26,11 +26,11 @@ package com.pkj.learn.newsbyjus.data.source.remote
 data class HeadlineResponse(
     val status: String = "",
     val totalResults: Int = 0,
-    val articles: List<Article> = emptyList()
+    val articles: List<NewsArticle> = emptyList()
 )
 
 
-data class Article(
+data class NewsArticle(
     val source: Source = Source(),
     val author: String = "",
     val title: String = "",

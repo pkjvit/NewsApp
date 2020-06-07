@@ -30,7 +30,7 @@ interface NewsDao {
      * @return the article with articleId.
      */
     @Query("SELECT * FROM Article WHERE id = :articleId")
-    suspend fun getArticleById(articleId: String): Article?
+    suspend fun getArticleById(articleId: Int): Article?
 
 
     /**

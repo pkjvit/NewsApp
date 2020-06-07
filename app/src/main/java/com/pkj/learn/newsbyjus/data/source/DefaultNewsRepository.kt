@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.NewsRepository
 import com.pkj.learn.newsbyjus.data.Result
-import com.pkj.learn.newsbyjus.data.source.local.DefaultNewsLocalDataSource
-import com.pkj.learn.newsbyjus.data.source.remote.DefaultNewsRemoteDataSource
+import com.pkj.learn.newsbyjus.data.source.local.NewsLocalDataSource
 import com.pkj.learn.newsbyjus.data.source.remote.HeadlineResponse
+import com.pkj.learn.newsbyjus.data.source.remote.NewsRemoteDataSource
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -19,8 +19,8 @@ import javax.inject.Inject
  * @author Pankaj Jangid
  */
 class DefaultNewsRepository @Inject constructor(
-    private val localDataSource: DefaultNewsLocalDataSource,
-    private val remoteDataSource: DefaultNewsRemoteDataSource,
+    private val localDataSource: NewsLocalDataSource,
+    private val remoteDataSource: NewsRemoteDataSource,
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO) : NewsRepository{
 
 
@@ -69,7 +69,7 @@ class DefaultNewsRepository @Inject constructor(
 
     }
 
-    override suspend fun getArticle(articleId: String): Result<Article> {
+    override suspend fun getArticle(articleId: Int): Result<Article> {
         return localDataSource.getArticle(articleId)
     }
 

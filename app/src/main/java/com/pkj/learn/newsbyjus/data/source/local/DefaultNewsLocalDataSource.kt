@@ -14,7 +14,7 @@ class DefaultNewsLocalDataSource @Inject constructor(private val dao: NewsDao) :
         return Result.Success(dao.getArticles())
     }
 
-    override suspend fun getArticle(articleId: String): Result<Article> {
+    override suspend fun getArticle(articleId: Int): Result<Article> {
         val article = dao.getArticleById(articleId)
         article?.let {
             return Result.Success(article)
