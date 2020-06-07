@@ -9,6 +9,7 @@ import coil.api.load
 import com.pkj.learn.newsbyjus.R
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.databinding.HeadlineItemLayoutBinding
+import com.pkj.learn.newsbyjus.util.loadUrl
 
 /**
  * @author Pankaj Jangid
@@ -35,10 +36,7 @@ class HeadlinesAdapter(private val viewModel: HeadlinesViewModel) :
             binding.viewmodel = viewModel
             binding.article = item
             binding.executePendingBindings()
-            binding.imageViewUrl.load(item.urlToImage){
-                crossfade(true)
-                placeholder(R.drawable.placeholder)
-            }
+            binding.imageViewUrl.loadUrl(item.urlToImage)
 
         }
 

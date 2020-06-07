@@ -20,11 +20,13 @@ package com.pkj.learn.newsbyjus.util
  */
 
 import android.view.View
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import coil.api.load
 import com.google.android.material.snackbar.Snackbar
 import com.pkj.learn.newsbyjus.R
 
@@ -65,5 +67,14 @@ fun Fragment.setupRefreshLayout(
     // Set the scrolling view in the custom SwipeRefreshLayout.
     scrollUpChild?.let {
         refreshLayout.scrollUpChild = it
+    }
+}
+
+fun ImageView.loadUrl(url : String){
+    this.load(url){
+        crossfade(true)
+        placeholder(R.drawable.placeholder)
+        fallback(R.drawable.placeholder)
+        error(R.drawable.placeholder)
     }
 }

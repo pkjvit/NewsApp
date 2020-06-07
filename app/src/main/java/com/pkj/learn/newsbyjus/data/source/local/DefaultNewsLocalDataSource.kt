@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.Result
-import java.lang.Exception
 import javax.inject.Inject
 
 /**

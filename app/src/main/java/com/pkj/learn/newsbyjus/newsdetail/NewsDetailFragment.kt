@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.pkj.learn.newsbyjus.NewsApplication
 import com.pkj.learn.newsbyjus.R
 import com.pkj.learn.newsbyjus.databinding.NewsDetailsFragmentBinding
+import com.pkj.learn.newsbyjus.util.loadUrl
 import com.pkj.learn.newsbyjus.util.setupSnackbar
 import javax.inject.Inject
 
@@ -50,10 +51,7 @@ class NewsDetailFragment : Fragment(){
         view?.setupSnackbar(this, viewModel.snackbarText, Snackbar.LENGTH_SHORT)
 
         viewModel.article.observe(viewLifecycleOwner, Observer {
-                it?.let { viewDataBinding.imageView.load(it.urlToImage){
-                    crossfade(true)
-                    placeholder(R.drawable.placeholder)
-                }
+                it?.let { viewDataBinding.imageView.loadUrl(it.urlToImage)
             }
         })
 
