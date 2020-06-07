@@ -17,47 +17,53 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/headline_height"
-        android:onClick="@{() -> viewmodel.openArticle(article.id)}">
+        android:foreground="?attr/selectableItemBackground"
+        android:onClick="@{() -> viewmodel.openArticle(article.id)}"
+        >
 
         <ImageView
             android:id="@+id/imageView_url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headline_height"
             android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:foreground="@drawable/gradient_bg"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
             android:id="@+id/textView_source"
+            style="@style/TextAppearance.Bold.Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:layout_marginBottom="12dp"
+            android:text="@{article.source}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@{article.source}"
             tools:text="CNN" />
 
         <TextView
             android:id="@+id/textView_published_at"
+            style="@style/TextAppearance.Caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginLeft="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
+            android:text="@{article.publishedAt}"
             app:layout_constraintBottom_toBottomOf="@+id/textView_source"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView_source"
-            android:text="@{article.publishedAt}"
             tools:text="2020-06-05" />
 
         <TextView
             android:id="@+id/textView_title"
+            style="@style/TextAppearance.Subtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -65,10 +71,10 @@
             android:layout_marginEnd="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="24dp"
+            android:text="@{article.title}"
             app:layout_constraintBottom_toTopOf="@+id/textView_source"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@{article.title}"
             tools:text="Forex Today: Risk-on mood continues downing the dollar and yen, will Non-Farm Payrolls change that?" />
 
 

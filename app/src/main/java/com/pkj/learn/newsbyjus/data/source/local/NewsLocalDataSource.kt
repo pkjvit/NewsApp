@@ -15,7 +15,7 @@ interface NewsLocalDataSource {
 
     fun observeArticles(): LiveData<Result<List<Article>>>
 
-    fun observeArticle(articleId: String): LiveData<Result<Article>>
+    fun observeArticle(articleId: Int): LiveData<Result<Article>>
 
     suspend fun insertArticles(articles: List<Article>): Result<List<Long>>
 

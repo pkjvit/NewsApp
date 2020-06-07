@@ -43,8 +43,8 @@ class HeadlinesViewModel @Inject constructor(private val repository: NewsReposit
     private val _snackbarText = MutableLiveData<Event<Int>>()
     val snackbarText: LiveData<Event<Int>> = _snackbarText
 
-    private val _openArticleEvent = MutableLiveData<Event<Long>>()
-    val openArticleEvent: LiveData<Event<Long>> = _openArticleEvent
+    private val _openArticleEvent = MutableLiveData<Event<Int>>()
+    val openArticleEvent: LiveData<Event<Int>> = _openArticleEvent
 
     private fun showSnackbarMessage(message: Int) {
         _snackbarText.value = Event(message)
@@ -53,7 +53,7 @@ class HeadlinesViewModel @Inject constructor(private val repository: NewsReposit
     /**
      * Called by Data Binding.
      */
-    fun openArticle(articleId: Long) {
+    fun openArticle(articleId: Int) {
         _openArticleEvent.value = Event(articleId)
     }
 

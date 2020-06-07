@@ -63,7 +63,7 @@ class DefaultNewsRepository @Inject constructor(
         return localDataSource.observeArticles()
     }
 
-    override fun observeArticle(articleId: String): LiveData<Result<Article>> {
+    override fun observeArticle(articleId: Int): LiveData<Result<Article>> {
         return localDataSource.observeArticle(articleId)
     }
 

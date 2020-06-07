@@ -22,7 +22,7 @@
         tools:layout="@layout/news_details_fragment">
         <argument
             android:name="articleId"
-            app:argType="long"
+            app:argType="integer"
             />
     </fragment>
 </navigation>

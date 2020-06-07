@@ -70,7 +70,7 @@ class HeadlinesFragment : Fragment(){
     }
 
 
-    private fun openNewsDetails(articleId: Long) {
+    private fun openNewsDetails(articleId: Int) {
         val action = HeadlinesFragmentDirections.actionHeadlinesFragmentToNewsDetailFragment(articleId)
         findNavController().navigate(action)
     }

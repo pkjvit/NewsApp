@@ -40,7 +40,7 @@ interface NewsDao {
      * @return the article with id.
      */
     @Query("SELECT * FROM Article WHERE id = :articleId")
-    fun observeArticleById(articleId: String): LiveData<Article>
+    fun observeArticleById(articleId: Int): LiveData<Article>
 
 
     /**

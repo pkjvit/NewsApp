@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import coil.api.load
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.databinding.HeadlineItemLayoutBinding
 
@@ -33,6 +34,7 @@ class HeadlinesAdapter(private val viewModel: HeadlinesViewModel) :
             binding.viewmodel = viewModel
             binding.article = item
             binding.executePendingBindings()
+            binding.imageViewUrl.load(item.urlToImage)
 
         }
 

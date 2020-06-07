@@ -27,7 +27,7 @@ class DefaultNewsLocalDataSource @Inject constructor(private val dao: NewsDao) :
         return dao.observeArticles().map { Result.Success(it) }
     }
 
-    override fun observeArticle(articleId: String): LiveData<Result<Article>> {
+    override fun observeArticle(articleId: Int): LiveData<Result<Article>> {
         return dao.observeArticleById(articleId).map { Result.Success(it) }
     }
 
