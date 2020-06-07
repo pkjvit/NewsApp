@@ -6,6 +6,7 @@ import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.NewsRepository
 import com.pkj.learn.newsbyjus.data.Result
 import com.pkj.learn.newsbyjus.util.Event
+import com.pkj.learn.newsbyjus.util.Format
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -87,10 +88,7 @@ class HeadlinesViewModel @Inject constructor(private val repository: NewsReposit
 
     // todo redundant : companion function not working with databinding in xml : need to find out solution
     fun dateFormat(dateTime: String?): String{
-        dateTime?.let {
-            return dateTime.substringBefore('T')
-        }
-        return ""
+        return Format.dateFormatFromDateTime(dateTime)
     }
 
     init {

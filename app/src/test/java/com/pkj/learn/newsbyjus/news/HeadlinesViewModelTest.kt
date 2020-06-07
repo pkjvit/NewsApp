@@ -1,6 +1,7 @@
 package com.pkj.learn.newsbyjus.news
 
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 
 /**
@@ -8,8 +9,13 @@ import org.junit.Test
  */
 class HeadlinesViewModelTest{
 
+    @Before
+    fun setUp() {
+    }
+
     @Test
     fun conversionDateFormatFromDateTime(){
+
     }
 
 }

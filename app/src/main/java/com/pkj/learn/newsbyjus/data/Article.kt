@@ -26,7 +26,7 @@ import com.pkj.learn.newsbyjus.data.source.remote.NewsArticle
 */
 
 @Entity(tableName = "Article")
-class Article @JvmOverloads constructor(
+data class Article @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 

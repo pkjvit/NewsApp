@@ -44,13 +44,24 @@ android {
     }
 }
 
+def androidXTestCoreVersion = '1.2.0'
+def androidXTestExtKotlinRunnerVersion = '1.1.1'
 def archLifecycleVersion = '2.2.0-alpha01'
+def archTestingVersion = '2.0.0'
 def cardVersion = '1.0.0'
+def coreTestingVersion = '2.0.0'
 def coilVersion = "0.11.0"
+def coroutinesVersion = "1.2.1"
 def daggerVersion = "2.27"
+def espressoVersion = '3.1.1'
+def fragmentVersion = "1.2.1"
+def junitVersion = '4.13'
+def mockitoKotlinVersion = '2.2.0'
 def navigationVersion = "2.3.0-alpha01"
-def roomVersion = "2.2.3"
 def retrofitVersion = "2.6.2"
+def robolectricVersion = '4.3.1'
+def roomVersion = "2.2.3"
+def testExtJunit = '1.1.0'
 def timberVersion = '4.7.1'
 
 dependencies {
@@ -91,8 +102,34 @@ dependencies {
     // Coil
     implementation "io.coil-kt:coil:$coilVersion"
 
-    testImplementation 'junit:junit:4.13'
+    // Testing
+    testImplementation "junit:junit:$junitVersion"
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+
+    testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    androidTestImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    implementation "androidx.fragment:fragment-testing:$fragmentVersion"
+    implementation "androidx.test:core:$androidXTestCoreVersion"
+
+    androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
 
 }
