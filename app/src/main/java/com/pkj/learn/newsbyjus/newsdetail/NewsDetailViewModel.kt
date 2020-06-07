@@ -48,4 +48,12 @@ class NewsDetailViewModel @Inject constructor(private val repository: NewsReposi
     private fun showSnackbarMessage(@StringRes message: Int) {
         _snackbarText.value = Event(message)
     }
+
+    // todo redundant : companion function not working with databinding in xml : need to find out solution
+    fun dateFormat(dateTime: String?): String{
+        dateTime?.let {
+            return dateTime.substringBefore('T')
+        }
+        return ""
+    }
 }
