@@ -6,5 +6,5 @@
     <dimen name="margin_large">20dp</dimen>
     <dimen name="margin_extra_large">24dp</dimen>
 
-    <dimen name="headline_height">200dp</dimen>
+    <dimen name="headline_height">240dp</dimen>
 </resources>
