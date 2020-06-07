@@ -27,6 +27,9 @@ class NewsDetailViewModel @Inject constructor(private val repository: NewsReposi
     private val _snackbarText = MutableLiveData<Event<Int>>()
     val snackbarText: LiveData<Event<Int>> = _snackbarText
 
+    private val _back = MutableLiveData<Event<Boolean>>()
+    val back: LiveData<Event<Boolean>> = _back
+
     fun start(articleId: Int?) {
         // If we're already loading or already loaded, return (might be a config change)
         if (articleId == _articleId.value) {
@@ -34,6 +37,10 @@ class NewsDetailViewModel @Inject constructor(private val repository: NewsReposi
         }
         // Trigger the load
         _articleId.value = articleId
+    }
+
+    fun back(){
+        _back.value = Event(true)
     }
 
     private fun computeResult(taskResult: Result<Article>): Article? {

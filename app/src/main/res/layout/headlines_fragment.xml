@@ -15,29 +15,50 @@
 
     </data>
 
-    <com.pkj.learn.newsbyjus.util.ScrollChildSwipeRefreshLayout
-        android:id="@+id/refresh_layout"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:onRefreshListener="@{viewmodel::refresh}"
-        app:refreshing="@{viewmodel.dataLoading}">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:orientation="vertical">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView_headlines"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                style="@style/TextAppearance.Bold.Headline"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/headline_item_layout"/>
+                android:gravity="center"
+                android:text="@string/headlines" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.pkj.learn.newsbyjus.util.ScrollChildSwipeRefreshLayout>
+        </androidx.appcompat.widget.Toolbar>
 
+        <com.pkj.learn.newsbyjus.util.ScrollChildSwipeRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{viewmodel::refresh}"
+            app:refreshing="@{viewmodel.dataLoading}">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView_headlines"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/headline_item_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.pkj.learn.newsbyjus.util.ScrollChildSwipeRefreshLayout>
+
+    </LinearLayout>
 </layout>

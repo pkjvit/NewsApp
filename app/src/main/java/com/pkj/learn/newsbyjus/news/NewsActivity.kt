@@ -7,18 +7,13 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.pkj.learn.newsbyjus.R
+import kotlinx.android.synthetic.main.news_activity.*
 
 class NewsActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.news_activity)
 
-        val navController: NavController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-
-        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 }

@@ -51,6 +51,8 @@
             app:layout_constraintDimensionRatio="h,1:1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/round_button"
+            android:onClick="@{()->viewmodel.back()}"
             app:srcCompat="@drawable/abc_vector_test" />
 
         <androidx.constraintlayout.widget.Guideline
