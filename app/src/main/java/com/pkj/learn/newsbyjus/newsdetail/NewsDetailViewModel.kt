@@ -2,12 +2,12 @@ package com.pkj.learn.newsbyjus.newsdetail
 
 import androidx.annotation.StringRes
 import androidx.lifecycle.*
+import com.pkj.learn.newsbyjus.R
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.data.NewsRepository
 import com.pkj.learn.newsbyjus.data.Result
 import com.pkj.learn.newsbyjus.util.Event
 import javax.inject.Inject
-import com.pkj.learn.newsbyjus.R
 
 /**
  * @author Pankaj Jangid

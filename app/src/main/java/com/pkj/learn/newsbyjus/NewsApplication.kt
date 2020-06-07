@@ -14,8 +14,8 @@ class NewsApplication : Application() {
         DaggerAppComponent.factory().create(applicationContext)
     }
 
-    /*override fun onCreate() {
+    override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-    }*/
+    }
 }

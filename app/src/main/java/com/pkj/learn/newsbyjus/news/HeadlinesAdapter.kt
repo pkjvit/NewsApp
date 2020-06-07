@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
-import com.pkj.learn.newsbyjus.R
 import com.pkj.learn.newsbyjus.data.Article
 import com.pkj.learn.newsbyjus.databinding.HeadlineItemLayoutBinding
 import com.pkj.learn.newsbyjus.util.loadUrl

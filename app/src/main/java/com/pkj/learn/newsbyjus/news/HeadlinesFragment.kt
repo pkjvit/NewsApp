@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.pkj.learn.newsbyjus.NewsApplication
 import com.pkj.learn.newsbyjus.databinding.HeadlinesFragmentBinding
-import com.pkj.learn.newsbyjus.newsdetail.NewsDetailFragment
 import com.pkj.learn.newsbyjus.util.EventObserver
 import com.pkj.learn.newsbyjus.util.setupRefreshLayout
 import com.pkj.learn.newsbyjus.util.setupSnackbar

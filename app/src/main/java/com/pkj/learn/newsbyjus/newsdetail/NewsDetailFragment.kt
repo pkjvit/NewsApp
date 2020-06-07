@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import coil.api.load
 import com.google.android.material.snackbar.Snackbar
 import com.pkj.learn.newsbyjus.NewsApplication
-import com.pkj.learn.newsbyjus.R
 import com.pkj.learn.newsbyjus.databinding.NewsDetailsFragmentBinding
 import com.pkj.learn.newsbyjus.util.loadUrl
 import com.pkj.learn.newsbyjus.util.setupSnackbar

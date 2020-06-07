@@ -9,16 +9,11 @@ import com.pkj.learn.newsbyjus.data.source.remote.DefaultNewsRemoteDataSource
 import com.pkj.learn.newsbyjus.data.source.remote.HeadlineResponse
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import javax.inject.Inject
-import com.pkj.learn.newsbyjus.data.source.NetworkBoundResource
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import okio.IOException
 import retrofit2.HttpException
-import retrofit2.Response
 import timber.log.Timber
+import javax.inject.Inject
 
 /**
  * @author Pankaj Jangid
@@ -73,18 +68,6 @@ class DefaultNewsRepository @Inject constructor(
         }
 
     }
-
-//    suspend fun getTopHeadlinesFlow(): Flow<Result<List<Article>>> {
-//        return object : NetworkBoundResource<List<Article>, Response<HeadlineResponse>>() {
-//            override suspend fun saveNetworkResult(response: Response<HeadlineResponse>) = localDataSource.clearAndCacheArticles((response.body() as HeadlineResponse).articles )
-//            // Always try to fetch new articles
-//            override fun shouldFetch(data: List<Article>?): Boolean = true
-//            override fun loadFromDb(): Flow<List<Article>> = localDataSource.getArticles()
-//            override suspend fun fetchFromNetwork(): Response<HeadlineResponse> = remoteDataSource.getTopHeadlines()
-//        }
-//            .asFlow()
-//            .flowOn(Dispatchers.IO)
-//    }
 
     override suspend fun getArticle(articleId: String): Result<Article> {
         return localDataSource.getArticle(articleId)
