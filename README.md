@@ -25,3 +25,10 @@ This application us libraries and tools used to build Modern Android application
 - Other [Android Jetpack](https://developer.android.com/jetpack) components
 
 
+
+Need to Done(Improvements)
+--------------------------
+
+- 100% Test cover using Unit(testing single method in viewmodel or repository), Instrumentation(Testing all functionality in a single activity/fragment) and E2E test cases
+- Proper error handling and send event to UI
+- Show fallback messages like on empty list ("no article available")
