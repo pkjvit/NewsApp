@@ -11,6 +11,11 @@ Architecture Design
 <img src="app_architecture_design.png" width="1000">
 
 
+Screen Design
+-------------
+
+<img src="app_screen_design.png" width="1000">
+
 Libraries and tools
 -------------------
 
