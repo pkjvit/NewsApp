@@ -48,11 +48,6 @@ class NewsDetailFragment : Fragment(){
         super.onActivityCreated(savedInstanceState)
         view?.setupSnackbar(this, viewModel.snackbarText, Snackbar.LENGTH_SHORT)
 
-        viewModel.article.observe(viewLifecycleOwner, Observer {
-                it?.let { viewDataBinding.imageView.loadUrl(it.urlToImage)
-            }
-        })
-
         viewModel.back.observe(viewLifecycleOwner, Observer {
             findNavController().popBackStack()
         })

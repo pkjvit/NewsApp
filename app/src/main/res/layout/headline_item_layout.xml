@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="articleCom"
-            type="com.pkj.learn.newsbyjus.data.Article.Companion" />
-
-        <variable
             name="article"
             type="com.pkj.learn.newsbyjus.data.Article" />
 
@@ -44,6 +40,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:image="@{article.urlToImage}"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <TextView

@@ -70,11 +70,3 @@ fun Fragment.setupRefreshLayout(
     }
 }
 
-fun ImageView.loadUrl(url : String){
-    this.load(url){
-        crossfade(true)
-        placeholder(R.drawable.placeholder)
-        fallback(R.drawable.placeholder)
-        error(R.drawable.placeholder)
-    }
-}

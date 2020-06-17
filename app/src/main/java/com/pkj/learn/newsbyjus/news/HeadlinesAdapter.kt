@@ -33,9 +33,6 @@ class HeadlinesAdapter(private val viewModel: HeadlinesViewModel) :
 
             binding.viewmodel = viewModel
             binding.article = item
-            binding.executePendingBindings()
-            binding.imageViewUrl.loadUrl(item.urlToImage)
-
         }
 
 
